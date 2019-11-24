@@ -2,7 +2,7 @@
  *       Override CSS Framework
  * --------------------------------- */
 html {
-  font-size: 14px;
+  font-size: 15px;
 }
 body {
   background-color: #f7f7f7;
@@ -294,7 +294,7 @@ img.thumbnail {
   border: none;
 }
 .is-size-7 {
-  font-size: 0.85rem !important;
+  font-size: 1rem !important /*0.85rem*/;
 }
 .is-7by1 {
   padding-top: 42.8%;
