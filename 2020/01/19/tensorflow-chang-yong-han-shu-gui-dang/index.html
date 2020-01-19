@@ -7,19 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>吕东旭</title>
+<title>TensorFlow常用函数归档 - 吕东旭</title>
 
 
-    <meta name="description" content="吕东旭的个人博客，主要用作环境配置记录、论文研读记录、开源代码分享以及算法题记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吕东旭">
-<meta property="og:url" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;index.html">
+    <meta name="description" content="这篇博客主要是整理用到TensorFlow函数，方便日后查找">
+<meta name="keywords" content="TensorFlow Function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow常用函数归档">
+<meta property="og:url" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;2020&#x2F;01&#x2F;19&#x2F;tensorflow-chang-yong-han-shu-gui-dang&#x2F;index.html">
 <meta property="og:site_name" content="吕东旭">
-<meta property="og:description" content="吕东旭的个人博客，主要用作环境配置记录、论文研读记录、开源代码分享以及算法题记录">
+<meta property="og:description" content="这篇博客主要是整理用到TensorFlow函数，方便日后查找">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;gallery&#x2F;featureimages&#x2F;12.jpg">
+<meta property="og:updated_time" content="2020-01-19T16:20:31.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;lvdongxu.github.io&#x2F;gallery&#x2F;featureimages&#x2F;12.jpg">
 
 
 
@@ -77,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="吕东旭" height="28">
+                <img src="/images/logo.svg" alt="TensorFlow常用函数归档" height="28">
             
             </a>
         </div>
@@ -85,7 +87,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/">Home</a>
                 
                 <a class="navbar-item"
@@ -110,6 +112,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -124,19 +130,18 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
-    
 <div class="card">
     
     <div class="card-image">
-        <a href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/" class="image is-7by1">
+        <span  class="image is-7by1">
             <img class="thumbnail" src="/gallery/featureimages/12.jpg" alt="TensorFlow常用函数归档">
-        </a>
+        </span>
     </div>
     
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/"><i class="fas fa-angle-double-right"></i>TensorFlow常用函数归档</a>
+                <i class="fas fa-angle-double-right"></i>TensorFlow常用函数归档
             
         </h1>
         
@@ -160,37 +165,56 @@
                 </span>
                 
                 
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
             </div>
         </div>
         
         <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/">TensorFlow常用函数归档</a>
+                TensorFlow常用函数归档
             
         </h1> -->
         <div class="content">
             <p>这篇博客主要是整理用到TensorFlow函数，方便日后查找</p>
+<a id="more"></a>
+
+<h1 id="Part1-Matrix-Structure"><a href="#Part1-Matrix-Structure" class="headerlink" title="Part1 Matrix Structure"></a>Part1 Matrix Structure</h1><h2 id="1-1-tf-newaxis-矩阵增加维度命令"><a href="#1-1-tf-newaxis-矩阵增加维度命令" class="headerlink" title="1.1 tf.newaxis 矩阵增加维度命令"></a>1.1 tf.newaxis 矩阵增加维度命令</h2><p><strong>该函数的作用是给tensor增加维度</strong>，例如：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf </span><br><span class="line">a = tf.range(<span class="hljs-number">10</span>,dtype=tf.int32) </span><br><span class="line">print(a) </span><br><span class="line">b = a[:,tf.newaxis] </span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果是</strong>：</p>
+<p>a的shape为（10，）<br>b的shape为（10，1）<br>若b = a[tf.newaxis,:]，则b的shape为（1,10）</p>
+<h2 id="1-2-tf-eye-单位阵函数"><a href="#1-2-tf-eye-单位阵函数" class="headerlink" title="1.2 tf.eye - 单位阵函数"></a>1.2 tf.eye - 单位阵函数</h2><h1 id="Part2-Matrix-Calculation"><a href="#Part2-Matrix-Calculation" class="headerlink" title="Part2 Matrix Calculation"></a>Part2 Matrix Calculation</h1><h2 id="2-1-tf-matmul-矩阵相乘函数"><a href="#2-1-tf-matmul-矩阵相乘函数" class="headerlink" title="2.1 tf.matmul 矩阵相乘函数"></a>2.1 tf.matmul 矩阵相乘函数</h2><p><strong>函数参数如下</strong>：</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tf.matmul(</span><br><span class="line">    a,</span><br><span class="line">    b,</span><br><span class="line">    transpose_a=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第一个矩阵是否在相乘前转置</span></span><br><span class="line">    transpose_b=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第二个矩阵是否在相乘前转置</span></span><br><span class="line">    adjoint_a=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第一个矩阵是否在相乘前共轭转置</span></span><br><span class="line">    adjoint_b=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第二个矩阵是否在相乘前共轭转置</span></span><br><span class="line">    a_is_sparse=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第一个矩阵是否是稀疏矩阵</span></span><br><span class="line">    b_is_sparse=<span class="hljs-literal">False</span>, <span class="hljs-comment"># 第二个矩阵是否是稀疏矩阵</span></span><br><span class="line">    name=<span class="hljs-literal">None</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
         </div>
         
+        <div>
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/">TensorFlow常用函数归档</a></li>
+            <li><strong>本文作者：</strong><a href="https://lvdongxu.github.io">吕东旭</a></li>
+            <li><strong>本文链接：</strong><a href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/">https://lvdongxu.github.io/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/</a></li> <!-- 这里替换成你自己的网址-->
+            <li><strong>发布时间：</strong>2020-01-19</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+            </ul>
+        </div><br>
         
         
-        <!-- <div class="level is-mobile"> -->
         <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
+                <div class="level-item">
+                    <!-- <span class="is-size-6 has-text-grey has-mr-7">#</span> -->
                     <i class="fas fa-tags has-text-grey"></i>&nbsp;
                     <a class="has-link-grey -link" href="/tags/TensorFlow-Function/" rel="tag">TensorFlow Function</a>
                 </div>
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/#more">阅读更多</a>
-                </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -200,153 +224,19 @@
 
 
 
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/01/17/hello-world/"><i class="fas fa-angle-double-right"></i>Hello World</a>
-            
-        </h1>
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-01-17T08:22:07.068Z">2020-01-17</time> -->
-                <time class="level-item has-text-grey" datetime="2020-01-17T08:22:07.068Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-01-17</time>
-                
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 124 个字)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/17/hello-world/">
+                <span class="level-item">Hello World</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/01/17/hello-world/">Hello World</a>
-            
-        </h1> -->
-        <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        </div>
-        
-        
-        
-        <!-- <div class="level is-mobile"> -->
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/Hello-World-for-hexo/" rel="tag">Hello World for hexo</a>
-                </div>
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/17/hello-world/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/featureimages/6.jpg" alt="Massive MIMO 论文名录及要点整理">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/"><i class="fas fa-angle-double-right"></i>Massive MIMO 论文名录及要点整理</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2019-11-23T15:34:00.000Z">2019-11-23</time> -->
-                <time class="level-item has-text-grey" datetime="2019-11-23T15:34:00.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-11-23</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-01-19T14:30:50.891Z"><i class="far fa-calendar-check">&nbsp;</i>2020-01-19</time>
-                
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/MIMO/">MIMO</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 分钟 读完 (大约 2368 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <!-- <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/">Massive MIMO 论文名录及要点整理</a>
-            
-        </h1> -->
-        <div class="content">
-            <p>这篇博客主要是整理看过的有关Massive MIMO的论文，英文为主，做一下简单的名录和链接整理，便于以后查找和写论文引用。</p>
-        </div>
-        
-        
-        
-        <!-- <div class="level is-mobile"> -->
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/MIMO-Paper/" rel="tag">MIMO Paper</a>
-                </div>
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -447,171 +337,38 @@
 </div>
     
         
-    
-        <div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/featureimages/12.jpg" alt="TensorFlow常用函数归档">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-19T14:24:27.000Z">2020-01-19</time></div>
-                    <a href="/2020/01/19/tensorflow-chang-yong-han-shu-gui-dang/" class="title has-link-black-ter is-size-6 has-text-weight-normal">TensorFlow常用函数归档</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/TensorFlow/">TensorFlow</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2020/01/17/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-17T08:22:07.068Z">2020-01-17</time></div>
-                    <a href="/2020/01/17/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/featureimages/6.jpg" alt="Massive MIMO 论文名录及要点整理">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-23T15:34:00.000Z">2019-11-23</time></div>
-                    <a href="/2019/11/23/mimo-lun-wen-mu-lu-zheng-li/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Massive MIMO 论文名录及要点整理</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/MIMO/">MIMO</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/MIMO/">
-            <span class="level-start">
-                <span class="level-item">MIMO</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Part1-Matrix-Structure">
+        <!-- <span class="has-mr-6">1</span> -->
+        <span>Part1 Matrix Structure</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-1-tf-newaxis-矩阵增加维度命令">
+        <!-- <span class="has-mr-6">1.1</span> -->
+        <span>1.1 tf.newaxis 矩阵增加维度命令</span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/TensorFlow/">
-            <span class="level-start">
-                <span class="level-item">TensorFlow</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2020/01/">
-                <span class="level-start">
-                    <span class="level-item">一月 2020</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/11/">
-                <span class="level-start">
-                    <span class="level-item">十一月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Hello-World-for-hexo/">
-                        <span class="tag">Hello World for hexo</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/MIMO-Paper/">
-                        <span class="tag">MIMO Paper</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/TensorFlow-Function/">
-                        <span class="tag">TensorFlow Function</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
+        <a class="is-flex" href="#1-2-tf-eye-单位阵函数">
+        <!-- <span class="has-mr-6">1.2</span> -->
+        <span>1.2 tf.eye - 单位阵函数</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Part2-Matrix-Calculation">
+        <!-- <span class="has-mr-6">2</span> -->
+        <span>Part2 Matrix Calculation</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#2-1-tf-matmul-矩阵相乘函数">
+        <!-- <span class="has-mr-6">2.1</span> -->
+        <span>2.1 tf.matmul 矩阵相乘函数</span>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
-</div>
+
     
     
         <div class="column-right-shadow is-hidden-widescreen is-sticky">
@@ -637,7 +394,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="吕东旭" height="28">
+                    <img src="/images/logo.svg" alt="TensorFlow常用函数归档" height="28">
                 
                 </a>
                 <p class="is-size-7">
