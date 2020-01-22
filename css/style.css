@@ -14,25 +14,25 @@ select,
 textarea {
   font-family: "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
 }
-@media screen and (min-width: 1400px /* 1280 */) {
+@media screen and (min-width: 1280px /* 1280 */) {
   .is-1-column .container,
   .is-2-column .container {
-    max-width: 960px;
-    width: 960px;
+    max-width: 1152px;
+    width: 1152px;
   }
   .is-3-column .container {
-    max-width: 1272px;
-    width: 1272px;
+    max-width: 1152px;
+    width: 1152px;
   }
 }
-@media screen and (min-width: 1800px /* 1472 */) {
+@media screen and (min-width: 1472px /* 1472 */) {
   .is-3-column .container {
-    max-width: 1672px;
-    width: 1672px;
+    max-width: 1344px;
+    width: 1344px;
   }
   .is-2-column .container {
-    max-width: 1272px;
-    width: 1272px;
+    max-width: 1344px;
+    width: 1344px;
   }
   .is-1-column .container {
     max-width: 960px;
